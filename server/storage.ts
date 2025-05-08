@@ -83,7 +83,8 @@ export class DatabaseStorage implements IStorage {
         });
         
         // 초기 캠페인 데이터 생성
-        const sampleCampaigns = [
+        // 타입을 명시적으로 지정하여 type-safety 보장
+        const sampleCampaigns: InsertCampaign[] = [
           {
             title: "삼성 갤럭시 S25 얼리 체험단 모집",
             description: "공식 출시 전, 갤럭시 S25를 먼저 경험해보세요. 최신 카메라 기능과 AI 기능을 체험하고 솔직한 리뷰를 작성해주세요.",
@@ -274,10 +275,19 @@ export class DatabaseStorage implements IStorage {
       return this.getCampaigns();
     }
     
+    // 카테고리가 유효한지 확인
+    const validCategories = ['맛집', '카페', '뷰티', '패션', '가전', '배달', '앱/웹서비스', '육아', '운동/건강', '기타'];
+    if (!validCategories.includes(category)) {
+      // 유효하지 않은 카테고리인 경우, 전체 캠페인을 반환
+      console.warn(`유효하지 않은 카테고리: ${category}, 전체 캠페인을 반환합니다.`);
+      return this.getCampaigns();
+    }
+    
+    // categoryEnum 타입으로 캐스팅하여 쿼리
     return await db
       .select()
       .from(campaigns)
-      .where(eq(campaigns.category, category))
+      .where(eq(campaigns.category, category as any))
       .orderBy(desc(campaigns.createdAt));
   }
 

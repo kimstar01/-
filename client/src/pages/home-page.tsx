@@ -108,10 +108,8 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold">인기 체험</h2>
-            <Link href={`/explore?category=${selectedCategory}`}>
-              <a className="text-neutral-600 hover:text-primary flex items-center">
-                더보기 <ChevronRight className="h-4 w-4 ml-1" />
-              </a>
+            <Link href={`/explore?category=${selectedCategory}`} className="text-neutral-600 hover:text-primary flex items-center">
+              더보기 <ChevronRight className="h-4 w-4 ml-1" />
             </Link>
           </div>
 
@@ -141,10 +139,8 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold">신규 체험</h2>
-            <Link href="/explore">
-              <a className="text-neutral-600 hover:text-primary flex items-center">
-                더보기 <ChevronRight className="h-4 w-4 ml-1" />
-              </a>
+            <Link href="/explore" className="text-neutral-600 hover:text-primary flex items-center">
+              더보기 <ChevronRight className="h-4 w-4 ml-1" />
             </Link>
           </div>
 
