@@ -32,6 +32,10 @@ export function CampaignCard({ campaign }: CampaignCardProps) {
             src={campaign.thumbnailUrl} 
             alt={campaign.title} 
             className="w-full h-48 object-cover"
+            onError={(e) => {
+              e.currentTarget.src = "https://images.unsplash.com/photo-1542435503-956c469947f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80";
+              e.currentTarget.onerror = null;
+            }}
           />
           {isUrgent && (
             <span className="absolute top-3 left-3 bg-primary text-white text-xs font-medium px-2 py-1 rounded">
