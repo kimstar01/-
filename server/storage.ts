@@ -73,6 +73,171 @@ export class MemStorage implements IStorage {
     this.currentApplicationId = 1;
     this.currentNotificationId = 1;
     this.currentLikeId = 1;
+    
+    // 초기 샘플 데이터 추가
+    this.initializeData();
+  }
+  
+  // 샘플 데이터 초기화
+  private initializeData() {
+    // 기본 광고주 계정 생성
+    const advertiser = {
+      id: this.currentUserId++,
+      username: "samsung_ad",
+      password: "$2b$10$XpC5nwC.QYwGkVYAfX8FY.OhYxnPOr1yW26uCX3oaLu7SWipbSaHS", // "password123"
+      email: "marketing@samsung.com",
+      name: "삼성전자",
+      role: "advertiser" as const,
+      profileImage: "https://images.unsplash.com/photo-1585909695284-32d2985ac9c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80",
+      points: 0,
+      followers: 0,
+      instagramId: null,
+      blogUrl: null,
+      twitterId: null,
+      createdAt: new Date()
+    };
+    this.users.set(advertiser.id, advertiser);
+    
+    // 초기 캠페인 데이터 생성
+    const sampleCampaigns = [
+      {
+        id: this.currentCampaignId++,
+        title: "삼성 갤럭시 S25 얼리 체험단 모집",
+        description: "공식 출시 전, 갤럭시 S25를 먼저 경험해보세요. 최신 카메라 기능과 AI 기능을 체험하고 솔직한 리뷰를 작성해주세요.",
+        category: "전자제품",
+        location: "서울 강남구",
+        startDate: new Date("2025-06-01"),
+        endDate: new Date("2025-06-30"),
+        capacity: 20,
+        thumbnail: "https://images.unsplash.com/photo-1610945264803-c22b62d2a7b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80",
+        images: [
+          "https://images.unsplash.com/photo-1610945264803-c22b62d2a7b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
+          "https://images.unsplash.com/photo-1546054454-aa26e2b734c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
+          "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80"
+        ],
+        requirements: "인스타그램 팔로워 5,000명 이상, 전자제품 리뷰 경험자 우대",
+        compensation: "갤럭시 S25 1개월 무료 대여, 우수 리뷰어 선정 시 제품 증정",
+        advertiserId: advertiser.id,
+        viewCount: 243,
+        likeCount: 56,
+        createdAt: new Date("2024-05-01")
+      },
+      {
+        id: this.currentCampaignId++,
+        title: "강남 신규 브런치 카페 체험단",
+        description: "강남역 인근에 오픈한 프리미엄 브런치 카페에서 신메뉴를 무료로 체험해보세요. 분위기 있는 인테리어와 함께 맛있는 식사를 즐기고 SNS에 리뷰를 남겨주세요.",
+        category: "식당/카페",
+        location: "서울 강남구",
+        startDate: new Date("2024-05-15"),
+        endDate: new Date("2024-06-15"),
+        capacity: 30,
+        thumbnail: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80",
+        images: [
+          "https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
+          "https://images.unsplash.com/photo-1513442542250-854d436a73f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
+          "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80"
+        ],
+        requirements: "인스타그램 활발히 활동 중인 분, 음식 사진 촬영 가능하신 분",
+        compensation: "2인 브런치 세트 무료 제공 (음료 포함), 추가 쿠폰 증정",
+        advertiserId: advertiser.id,
+        viewCount: 189,
+        likeCount: 42,
+        createdAt: new Date("2024-04-28")
+      },
+      {
+        id: this.currentCampaignId++,
+        title: "프리미엄 스킨케어 제품 체험단",
+        description: "프랑스 직수입 유기농 화장품 브랜드의 신제품 라인을 체험해보세요. 2주간 사용 후 피부 변화와 함께 솔직한 사용 리뷰를 남겨주시면 됩니다.",
+        category: "뷰티",
+        location: "온라인",
+        startDate: new Date("2024-05-10"),
+        endDate: new Date("2024-06-10"),
+        capacity: 50,
+        thumbnail: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80",
+        images: [
+          "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
+          "https://images.unsplash.com/photo-1556228720-195a672e8a03?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
+          "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80"
+        ],
+        requirements: "30-40대 여성, 민감성/건성 피부 소유자 우대",
+        compensation: "5종 스킨케어 풀세트 제공 (10만원 상당)",
+        advertiserId: advertiser.id,
+        viewCount: 328,
+        likeCount: 78,
+        createdAt: new Date("2024-04-25")
+      },
+      {
+        id: this.currentCampaignId++,
+        title: "최신 스마트홈 기기 체험단",
+        description: "AI 기반 스마트홈 시스템을 무료로 설치해드리고 한 달간 사용해보세요. 일상생활에서 달라진 점과 편리함을 블로그에 리뷰해주시면 됩니다.",
+        category: "전자제품",
+        location: "수도권",
+        startDate: new Date("2024-06-01"),
+        endDate: new Date("2024-07-15"),
+        capacity: 15,
+        thumbnail: "https://images.unsplash.com/photo-1558002038-bb0237f4baab?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80",
+        images: [
+          "https://images.unsplash.com/photo-1558002038-bb0237f4baab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
+          "https://images.unsplash.com/photo-1610164042354-8049d1a8a0d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
+          "https://images.unsplash.com/photo-1529236183275-4fdcf2bc987e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80"
+        ],
+        requirements: "자가 주택 거주자, 블로그 운영 6개월 이상",
+        compensation: "스마트홈 기기 3종 무상 설치 및 증정 (25만원 상당)",
+        advertiserId: advertiser.id,
+        viewCount: 156,
+        likeCount: 34,
+        createdAt: new Date("2024-05-02")
+      },
+      {
+        id: this.currentCampaignId++,
+        title: "제주도 프리미엄 리조트 체험단",
+        description: "제주 서귀포에 위치한 5성급 리조트에서 2박 3일간 휴식을 취하며 시설과 서비스를 경험해보세요. 객실, 수영장, 레스토랑 등 다양한 시설 이용 후 리뷰를 작성해주시면 됩니다.",
+        category: "숙박",
+        location: "제주도",
+        startDate: new Date("2024-06-15"),
+        endDate: new Date("2024-08-31"),
+        capacity: 10,
+        thumbnail: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80",
+        images: [
+          "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
+          "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
+          "https://images.unsplash.com/photo-1563911302283-d2bc129e7570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80"
+        ],
+        requirements: "여행/라이프스타일 컨텐츠 제작 경험자, 인스타그램 10,000 팔로워 이상",
+        compensation: "디럭스 오션뷰 2박 무료 제공 (2인 기준, 조식 포함)",
+        advertiserId: advertiser.id,
+        viewCount: 412,
+        likeCount: 98,
+        createdAt: new Date("2024-04-20")
+      },
+      {
+        id: this.currentCampaignId++,
+        title: "강남역 헬스장 체험단 모집",
+        description: "강남역 1번 출구 도보 3분 거리에 위치한 프리미엄 피트니스센터에서 1개월 무료 이용권을 드립니다. 시설, 트레이너, 프로그램 등에 대한 후기를 SNS에 남겨주세요.",
+        category: "스포츠/건강",
+        location: "서울 강남구",
+        startDate: new Date("2024-05-20"),
+        endDate: new Date("2024-06-20"),
+        capacity: 25,
+        thumbnail: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80",
+        images: [
+          "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
+          "https://images.unsplash.com/photo-1548690312-e3b507d8c110?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
+          "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80"
+        ],
+        requirements: "20-40대, 운동 관련 SNS 활동 경험자",
+        compensation: "1개월 무제한 이용권 및 PT 2회 무료 제공",
+        advertiserId: advertiser.id,
+        viewCount: 203,
+        likeCount: 47,
+        createdAt: new Date("2024-05-05")
+      }
+    ];
+    
+    // 캠페인 데이터 맵에 추가
+    for (const campaign of sampleCampaigns) {
+      this.campaigns.set(campaign.id, campaign);
+    }
   }
 
   // 사용자 관련 메서드
