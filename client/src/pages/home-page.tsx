@@ -87,7 +87,7 @@ export default function HomePage() {
                 </Button>
               </Link>
               <Link href="/auth">
-                <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10 rounded-full">
+                <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/30 rounded-full font-bold">
                   광고주 등록하기
                 </Button>
               </Link>
@@ -223,7 +223,7 @@ export default function HomePage() {
                   </Button>
                 </Link>
                 <Link href="/influencer-guide">
-                  <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10 rounded-full">
+                  <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/30 rounded-full font-bold">
                     더 알아보기
                   </Button>
                 </Link>

@@ -33,33 +33,33 @@ export function Footer() {
           <div>
             <h4 className="font-bold mb-4">체험단</h4>
             <ul className="space-y-2 text-neutral-400">
-              <li><Link href="/guide"><a className="hover:text-white transition-colors">체험단 신청방법</a></Link></li>
-              <li><Link href="/influencer-guide"><a className="hover:text-white transition-colors">인플루언서 가이드</a></Link></li>
-              <li><Link href="/review-guide"><a className="hover:text-white transition-colors">리뷰 작성법</a></Link></li>
-              <li><Link href="/points"><a className="hover:text-white transition-colors">포인트 정책</a></Link></li>
-              <li><Link href="/faq"><a className="hover:text-white transition-colors">자주 묻는 질문</a></Link></li>
+              <li><Link href="/guide" className="hover:text-white transition-colors">체험단 신청방법</Link></li>
+              <li><Link href="/influencer-guide" className="hover:text-white transition-colors">인플루언서 가이드</Link></li>
+              <li><Link href="/review-guide" className="hover:text-white transition-colors">리뷰 작성법</Link></li>
+              <li><Link href="/points" className="hover:text-white transition-colors">포인트 정책</Link></li>
+              <li><Link href="/faq" className="hover:text-white transition-colors">자주 묻는 질문</Link></li>
             </ul>
           </div>
           
           <div>
             <h4 className="font-bold mb-4">광고주</h4>
             <ul className="space-y-2 text-neutral-400">
-              <li><Link href="/advertiser-guide"><a className="hover:text-white transition-colors">광고 등록 방법</a></Link></li>
-              <li><Link href="/advertiser-rules"><a className="hover:text-white transition-colors">광고주 가이드</a></Link></li>
-              <li><Link href="/success-cases"><a className="hover:text-white transition-colors">성공 사례</a></Link></li>
-              <li><Link href="/pricing"><a className="hover:text-white transition-colors">서비스 요금</a></Link></li>
-              <li><Link href="/resources"><a className="hover:text-white transition-colors">자료실</a></Link></li>
+              <li><Link href="/advertiser-guide" className="hover:text-white transition-colors">광고 등록 방법</Link></li>
+              <li><Link href="/advertiser-rules" className="hover:text-white transition-colors">광고주 가이드</Link></li>
+              <li><Link href="/success-cases" className="hover:text-white transition-colors">성공 사례</Link></li>
+              <li><Link href="/pricing" className="hover:text-white transition-colors">서비스 요금</Link></li>
+              <li><Link href="/resources" className="hover:text-white transition-colors">자료실</Link></li>
             </ul>
           </div>
           
           <div>
             <h4 className="font-bold mb-4">고객센터</h4>
             <ul className="space-y-2 text-neutral-400">
-              <li><Link href="/notice"><a className="hover:text-white transition-colors">공지사항</a></Link></li>
-              <li><Link href="/contact"><a className="hover:text-white transition-colors">1:1 문의</a></Link></li>
-              <li><Link href="/partnership"><a className="hover:text-white transition-colors">제휴 문의</a></Link></li>
-              <li><Link href="/terms"><a className="hover:text-white transition-colors">이용약관</a></Link></li>
-              <li><Link href="/privacy"><a className="hover:text-white transition-colors">개인정보처리방침</a></Link></li>
+              <li><Link href="/notice" className="hover:text-white transition-colors">공지사항</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">1:1 문의</Link></li>
+              <li><Link href="/partnership" className="hover:text-white transition-colors">제휴 문의</Link></li>
+              <li><Link href="/terms" className="hover:text-white transition-colors">이용약관</Link></li>
+              <li><Link href="/privacy" className="hover:text-white transition-colors">개인정보처리방침</Link></li>
             </ul>
           </div>
         </div>
